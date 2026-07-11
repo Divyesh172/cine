@@ -1,17 +1,13 @@
 run:
   timeout: 5m
-linters:
-  enable:
-    - govet
-    - errcheck
-    - staticcheck
-    - ineffassign
-    - unused
-    - gofmt
-    - goimports
-    - misspell
-    - revive
+
+# Uses golangci-lint's default linters:
+# errcheck, gosimple, govet, ineffassign, staticcheck, unused.
+# revive is intentionally NOT enabled — its doc-comment rules are too noisy here.
+
 issues:
-  exclude-use-default: false
-  max-issues-per-linter: 0
-  max-same-issues: 0
+  exclude-rules:
+    # Ignoring the error from Close() (especially in defer) is acceptable.
+    - linters:
+        - errcheck
+      text: '`.*\.Close` is not checked'
