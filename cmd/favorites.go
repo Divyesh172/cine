@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/spf13/cobra"
 	"github.com/Divyesh172/cine/internal/meta"
 	"github.com/Divyesh172/cine/internal/store"
 	"github.com/Divyesh172/cine/internal/ui"
+	"github.com/spf13/cobra"
 )
 
 var favoritesCmd = &cobra.Command{

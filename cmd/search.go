@@ -4,8 +4,8 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/spf13/cobra"
 	"github.com/Divyesh172/cine/internal/meta"
+	"github.com/spf13/cobra"
 )
 
 var searchCmd = &cobra.Command{

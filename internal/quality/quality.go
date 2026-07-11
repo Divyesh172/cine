@@ -8,7 +8,7 @@ import (
 
 // Info is quality metadata parsed from a stream's title.
 type Info struct {
-	Resolution int    // 2160, 1080, 720, 480; 0 = unknown
+	Resolution int // 2160, 1080, 720, 480; 0 = unknown
 	HDR        bool
 	DV         bool   // Dolby Vision
 	Codec      string // "x265", "x264", "AV1", ""

@@ -9,7 +9,6 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/spf13/cobra"
 	"github.com/Divyesh172/cine/internal/config"
 	"github.com/Divyesh172/cine/internal/meta"
 	"github.com/Divyesh172/cine/internal/player"
@@ -17,6 +16,7 @@ import (
 	"github.com/Divyesh172/cine/internal/resolver"
 	"github.com/Divyesh172/cine/internal/store"
 	"github.com/Divyesh172/cine/internal/ui"
+	"github.com/spf13/cobra"
 )
 
 // seRe matches a trailing SxxExx token, e.g. "S02E05" (case-insensitive).

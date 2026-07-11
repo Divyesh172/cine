@@ -11,7 +11,7 @@ import (
 // ProviderConfig is a generic, untyped bag so new providers need no core changes.
 type ProviderConfig struct {
 	Name    string                 `mapstructure:"name"`
-	Type    string                 `mapstructure:"type"`    // e.g. "torrentio", "jackett"
+	Type    string                 `mapstructure:"type"` // e.g. "torrentio", "jackett"
 	Enabled bool                   `mapstructure:"enabled"`
 	Options map[string]interface{} `mapstructure:"options"` // endpoint, api_key, etc.
 }

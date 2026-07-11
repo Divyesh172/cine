@@ -37,7 +37,7 @@ func (c *Client) Search(ctx context.Context, query string) ([]Result, error) {
 		}
 		var body struct {
 			Metas []struct {
-				ID          string `json:"id"`          // "tt0903747"
+				ID          string `json:"id"` // "tt0903747"
 				Name        string `json:"name"`
 				ReleaseInfo string `json:"releaseInfo"` // "2008-2013"
 				Poster      string `json:"poster"`
