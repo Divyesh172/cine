@@ -1,0 +1,56 @@
+# ~/.config/cine/config.yaml
+# No metadata API key needed — Cinemeta is keyless.
+player: mpv
+# Extra flags passed straight to the player. Handy for headless/WSL setups where
+# the GPU/Vulkan path fails — force a software or terminal video output instead.
+# player_args: ["--vo=x11"]        # software X11 window (WSLg)
+# player_args: ["--vo=tct"]        # play inside the terminal, no display needed
+
+# How magnet/torrent links become playable. Install the bridge once:
+#   npm install -g peerflix
+# Direct http(s) streams (debrid/direct providers) ignore this entirely.
+resolver:
+  type: peerflix        # "peerflix" (default) or "none" to disable magnet playback
+  # bin: peerflix       # override if the binary isn't on PATH
+  # args: ["--no-quit"] # extra flags forwarded to the bridge
+  timeout: 90           # seconds to wait for the local stream server
+
+providers:
+  # Legal, keyless test provider — Creative-Commons open movies. Great for a smoke test.
+  - name: "Demo"
+    type: demo
+    enabled: true
+    options: {}
+
+  - name: "My Torrentio"
+    type: torrentio
+    enabled: true
+    options:
+      # user-supplied endpoint, nothing baked in. Torrentio's public host is keyless:
+      endpoint: "https://torrentio.strem.fun"
+
+  # Luffy-style direct/HLS provider — point it at YOUR scraper backend (nothing baked in).
+  # Plays .m3u8/http streams straight in mpv (no peerflix): instant + adaptive-bitrate,
+  # great for slow connections. Fragile by nature (scrapers break), so keep it swappable.
+  # - name: "Direct"
+  #   type: direct
+  #   enabled: false
+  #   options:
+  #     # placeholders: {imdb} {title} {year} {type} {season} {episode}
+  #     endpoint: "https://YOUR-SCRAPER-HOST/sources?imdb={imdb}&type={type}&season={season}&episode={episode}"
+  #     # referer: "https://YOUR-SCRAPER-HOST"   # some hosts require a Referer header
+
+  - name: "Consumet"
+    type: consumet
+    enabled: true
+    options:
+      endpoint: "http://localhost:3000"   # your self-hosted Consumet instance
+      # provider: "flixhq"                # optional (default: flixhq)
+      # server: "vidcloud"                # optional (default: vidcloud)
+
+  # - name: "My Jackett"
+  #   type: jackett
+  #   enabled: false
+  #   options:
+  #     endpoint: "http://localhost:9117"
+  #     api_key: "..."

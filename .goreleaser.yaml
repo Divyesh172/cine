@@ -1,0 +1,36 @@
+version: 2
+before:
+  hooks:
+    - go mod tidy
+builds:
+  - id: cine
+    main: .
+    binary: cine
+    env:
+      - CGO_ENABLED=0
+    flags:
+      - -trimpath
+    ldflags:
+      - -s -w
+      - -X github.com/Divyesh172/cine/cmd.Version=__VERSION__
+      - -X github.com/Divyesh172/cine/cmd.Commit=__COMMIT__
+      - -X github.com/Divyesh172/cine/cmd.Date=__DATE__
+    goos: [linux, darwin, windows]
+    goarch: [amd64, arm64]
+archives:
+  - id: cine
+    formats: [tar.gz]
+    format_overrides:
+      - goos: windows
+        formats: [zip]
+checksum:
+  name_template: "checksums.txt"
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - "^docs:"
+      - "^test:"
+      - "^ci:"
+release:
+  draft: false

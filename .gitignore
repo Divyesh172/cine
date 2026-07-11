@@ -1,0 +1,8 @@
+# built binaries
+cine
+cine.exe
+*.exe
+
+# OS junk
+.DS_Store
+Thumbs.db
