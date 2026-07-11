@@ -18,7 +18,9 @@ func init() { Register("jackett", newJackett) }
 // endpoint, API key, and indexer all come from user config.
 //
 // Run it once (Docker):
-//   docker run -d -p 9117:9117 -v jackett-config:/config linuxserver/jackett
+//
+//	docker run -d -p 9117:9117 -v jackett-config:/config linuxserver/jackett
+//
 // then open http://localhost:9117, add indexers, and copy the API key.
 type jackett struct {
 	baseURL    string // e.g. http://localhost:9117

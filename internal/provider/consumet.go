@@ -17,7 +17,8 @@ func init() { Register("consumet", newConsumet) }
 // search -> info -> watch flow and returns direct .m3u8 (HLS) sources that mpv
 // plays instantly (no peerflix). Self-host it so no third-party backend can
 // vanish on you:
-//   git clone https://github.com/consumet/api.consumet.org && npm i && npm start
+//
+//	git clone https://github.com/consumet/api.consumet.org && npm i && npm start
 type consumet struct {
 	baseURL  string // your instance, e.g. http://localhost:3000
 	provider string // consumet movie provider; default "flixhq"
